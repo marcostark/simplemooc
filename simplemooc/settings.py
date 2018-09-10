@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'simplemooc.core',
+    'simplemooc.accounts',
     'simplemooc.courses',
 ]
 
@@ -142,3 +143,8 @@ EMAIL_PORT = 587
 
 #E-mail de administração do curso, onde será copiado nos e-mails
 CONTACT_EMAIL = 'contato@simplemooc.com'
+
+#Auth - Usuários
+LOGIN_URL = 'accounts:login' # Usuário irá logar e será redicionado para a home
+LOGIN_REDIRECT_URL = 'core:home'
+LOGOUT_URL = 'accounts:logout'
