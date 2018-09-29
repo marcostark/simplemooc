@@ -1,16 +1,16 @@
 from django.conf.urls import url
 #from simplemooc.accounts.views import index
-from django.contrib.auth.views import login
-from django.contrib.auth.views import logout
-from simplemooc.accounts.views import register
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LogoutView
+from django.urls import path
+from simplemooc.accounts.views import register, dashboard, edit
+
 
 urlpatterns = [
-    # O Terceiro parametro indica que há substituição na view do template do django pelo personalizado
-    url(r'^entrar/$', login,
-        {'template_name':'accounts/login.html'}, name='login'),
-
-    url(r'^sair/$', logout,{'next_page':'core:home'}, name='logout'),
-
-    url(r'^cadastre-se/$', register, name='register'),
+    path('entrar/',LoginView.as_view(template_name = 'accounts/login.html'), name='login'),
+    path('sair/', LogoutView.as_view(next_page = 'core:home'), name='logout'),
+    path('cadastre-se/', register, name='register'),
+    path('', dashboard, name='dashboard'),
+    path('editar/', edit, name='edit'),
 ]
 

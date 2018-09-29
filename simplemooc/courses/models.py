@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
+
 
 class CourseManager(models.Manager):
 
@@ -36,9 +38,8 @@ class Course(models.Model):
     def __str__(self):
         return self.nome
 
-    @models.permalink
     def get_absolute_url(self):
-        return ('courses:details',(), {'slug':self.slug})
+        return reverse('courses:details', args=[self.slug])
 
 
     #Customizando o admin
