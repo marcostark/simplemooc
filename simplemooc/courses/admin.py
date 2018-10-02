@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Course
+from .models import Course, Enrollment
+
 
 # Registrar os modelos aqui.
 
@@ -10,5 +11,6 @@ class CourseAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('nome',)} #Populando o slug de acordo com o nome do curso de forma automatica
 
 admin.site.register(Course, CourseAdmin)
+admin.site.register(Enrollment)
 
 

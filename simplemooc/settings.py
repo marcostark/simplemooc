@@ -148,3 +148,4 @@ CONTACT_EMAIL = 'contato@simplemooc.com'
 LOGIN_URL = 'accounts:login' # Usuário irá logar e será redicionado para a home
 LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_URL = 'accounts:logout'
+AUTH_USER_MODEL = 'accounts.User' # Model padrão de usuário para o sistema
